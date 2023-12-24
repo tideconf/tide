@@ -1,6 +1,9 @@
-# TIDE ("Textual Interface for Data Exchange")
+# TIDE (Textual Interface for Data Exchange)
 
 ![Brenda from Bristol](image.png)
+
+> [!IMPORTANT]  
+> This is no more than a hobby project at the moment. I have always been curious about the design and implementation of configuration frameworks, and this is my attempt at creating one. I am not sure if this will ever be used, but I am hoping to learn a bit more about the whole deal of configuration handling. If you are interested in this project, please feel free to contribute or provide feedback.
 
 TIDE is a flexible, and type based configuration framework designed to streamline the way developers handle application configurations. Merging aspects of JSON, YAML, and TOML, TIDE offers a syntax that prioritizes readability, simplicity, and robustness. With TIDE, you can define complex configurations, ensuring they are both human-readable and machine-friendly. TIDE also offers built-in support for common configuration scenarios like environment variables, secrets, and schema definitions, making it a useful tool for managing application configurations in a modern cloud type environment.
 
@@ -94,3 +97,9 @@ secret "api_key" {
     fallback: string = "default_key"
 }
 ```
+
+## Library Support
+
+TIDE is currently supported in the following languages:
+
+* [Go](https://github.com/tideconf/tide-go)
