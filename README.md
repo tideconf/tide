@@ -14,7 +14,6 @@ TIDE is a flexible, and type based configuration framework designed to streamlin
 * Readability and Simplicity: Like YAML, but more streamlined to minimize syntactic noise.
 * Data Types and Validation: Built-in support for common data types and validation rules.
 * Scalability and Performance: Optimized for both small and large configuration files.
-* Extensibility and Interoperability: Easy integration with various programming languages and environments.
 * Error Handling and Feedback: More informative error messages and debugging support.
 * Versioning and Backward Compatibility: In-built versioning for configuration schemas to ensure backward compatibility.
 * Security: Designed to prevent common security issues found in JSON and YAML parsers.
@@ -45,26 +44,22 @@ database {
         password: string = "pass"
     }
 }
-```
 
-### Advanced Configuration with Function and Import
-
-```tide
-import "common_settings.tide"
-
-server {
-    host: string = "0.0.0.0"
-    port: integer = env("SERVER_PORT") | default(8080)
-    calculate_max_connections: lambda = (type, users) => if type == "large" then users * 2 else users
-    max_connections: integer = calculate_max_connections("medium", 100)
-}
-
-logging {
-    level: string = "info"
-    format: string = "[$timestamp] $level: $message"
-    timestamp: lambda = () => now().format("yyyy-MM-dd HH:mm:ss")
+myApp {
+    features: array[string] = ["feature1", "feature2", "feature3"]
+    numbers: array[integer] = [1, 2, 3]
 }
 ```
+
+## Library Support
+
+TIDE is currently supported in the following languages:
+
+* [Go](https://github.com/tideconf/tide-go)
+
+## Future Plans
+
+If I ever get around to implementing this, I would like to add the following features:
 
 ### Configuration with Schema Definition
 
@@ -98,8 +93,3 @@ secret "api_key" {
 }
 ```
 
-## Library Support
-
-TIDE is currently supported in the following languages:
-
-* [Go](https://github.com/tideconf/tide-go)
