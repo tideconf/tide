@@ -3,9 +3,16 @@
 ![Brenda from Bristol](image.png)
 
 > [!IMPORTANT]  
-> This is no more than a hobby project at the moment. I have always been curious about the design and implementation of configuration frameworks, and this is my attempt at creating one. I am not sure if this will ever be used, but I am hoping to learn a bit more about the whole deal of configuration handling. If you are interested in this project, please feel free to contribute or provide feedback.
+> This is no more than a hobby project at the moment. I have always been curious about the design and implementation of configuration frameworks, and this is my attempt at creating one. I am not sure if this will ever be used, but I am hoping to learn a bit more about the whole deal of configuration handling. If you are interested in this project, please feel free to contribute or provide feedback. There maybe dragons!
 
-TIDE is a flexible, and type based configuration framework designed to streamline the way developers handle application configurations. Merging aspects of JSON, YAML, and TOML, TIDE offers a syntax that prioritizes readability, simplicity, and robustness. With TIDE, you can define complex configurations, ensuring they are both human-readable and machine-friendly. TIDE also offers built-in support for common configuration scenarios like environment variables, secrets, and schema definitions, making it a useful tool for managing application configurations in a modern cloud type environment.
+TIDE is a flexible, and type based configuration framework designed to streamline
+the way developers handle application configurations. Merging aspects of JSON,
+YAML, and TOML, TIDE offers a syntax that prioritizes readability, simplicity,
+and robustness. With TIDE, you can define complex configurations, ensuring they
+are both human-readable and machine-friendly. TIDE also offers built-in support
+for common configuration scenarios like environment variables, secrets, and schema
+definitions, making it a useful tool for managing application configurations in
+a modern cloud type environment.
 
 ## Introduction
 
@@ -15,19 +22,13 @@ TIDE is a flexible, and type based configuration framework designed to streamlin
 * Data Types and Validation: Built-in support for common data types and validation rules.
 * Scalability and Performance: Optimized for both small and large configuration files.
 * Error Handling and Feedback: More informative error messages and debugging support.
-* Versioning and Backward Compatibility: In-built versioning for configuration schemas to ensure backward compatibility.
-* Security: Designed to prevent common security issues found in JSON and YAML parsers.
+* Security: Designed to prevent common security issues found in JSON and YAMLparsers, by use of strict type checking and validation.
 
 ### Syntax and Features:
 
 * Minimalistic Braces: Use a mix of indentation and minimalistic braces to balance between YAML's readability and JSON's structure.
 * Type Annotations: Allow explicit type annotations for values to ensure type safety and validation.
 * Comments and Documentation: Support both inline and block comments, and special annotations for documenting sections of the configuration.
-* Import Statements: Allow importing configurations from other files to support modularity.
-* Environment Variable Integration: Native support for environment variable interpolation.
-* Schema Definitions: Introduce schema definitions within the configuration file for self-contained validation rules.
-* First-class Function Support: Unlike JSON and TOML, support simple functions or lambda expressions for dynamic configurations.
-* Built-in Extensions for Common Use Cases: Provide extensions for common configuration scenarios like database connections, API keys, etc.
 
 ## Examples
 
@@ -61,35 +62,9 @@ TIDE is currently supported in the following languages:
 
 If I ever get around to implementing this, I would like to add the following features:
 
-### Configuration with Schema Definition
-
-```tide
-schema AppConfig {
-    version: string
-    debug: boolean
-    features: array[string]
-}
-
-config AppConfig {
-    version: string = "1.0.0"
-    debug: boolean = false
-    features: array[string] = ["feature1", "feature2", "feature3"]
-}
-```
-
-### Configuration with Built-in Extension
-    
-```tide
-api {
-    key: string = secret("api_key")
-    base_url: string = "https://api.example.com"
-    timeout: integer = 30
-}
-
-# Built-in extension for handling secrets
-secret "api_key" {
-    source: string = "environment"
-    fallback: string = "default_key"
-}
-```
-
+* Versioning and Backward Compatibility: In-built versioning for configuration schemas to ensure backward compatibility.
+* Import Statements: Allow importing configurations from other files to support modularity.
+* Environment Variable Integration: Native support for environment variable interpolation.
+* Schema Definitions: Introduce schema definitions within the configuration file for self-contained validation rules.
+* First-class Function Support: Unlike JSON and TOML, support simple functions or lambda expressions for dynamic configurations.
+* Built-in Extensions for Common Use Cases: Provide extensions for common configuration scenarios like database connections, API keys, etc.
