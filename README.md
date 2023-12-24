@@ -30,6 +30,13 @@ a modern cloud type environment.
 * Type Annotations: Allow explicit type annotations for values to ensure type safety and validation.
 * Comments and Documentation: Support both inline and block comments, and special annotations for documenting sections of the configuration.
 
+## Library Support
+
+TIDE is currently supported in the following languages:
+
+* [Go](https://github.com/tideconf/tide-go)
+* [Rust](https://github.com/tideconf/tide_rs)
+
 ## Examples
 
 ### Basic Example
@@ -51,12 +58,6 @@ myApp {
     numbers: array[integer] = [1, 2, 3]
 }
 ```
-
-## Library Support
-
-TIDE is currently supported in the following languages:
-
-* [Go](https://github.com/tideconf/tide-go)
 
 ## Future Plans
 
